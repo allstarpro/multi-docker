@@ -12,5 +12,5 @@ docker push allstarpro/multi-worker:$SHA
 
 kubectl apply -f k8s
 kubectl set image deployments/server-deployment server=allstarpro/multi-server:$SHA
-kubectl set image deployments/client-deployment server=allstarpro/multi-client:$SHA
-kubectl set image deployments/worker-deployment server=allstarpro/multi-worker:$SHA
+kubectl set image deployments/client-deployment client=allstarpro/multi-client:$SHA
+kubectl set image deployments/worker-deployment worker=allstarpro/multi-worker:$SHA
