@@ -9,8 +9,15 @@ metadata:
     # ADD THIS LINE ABOVE
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     # UPDATE THIS LINE ABOVE
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
 spec:
+  tls:
+    - hosts:
+      - sovereignunion.net
+      secretName: sovereignunion-net
   rules:
+    - host: sovereignunion.net
     - http:
         paths:
           - path: /?(.*)
